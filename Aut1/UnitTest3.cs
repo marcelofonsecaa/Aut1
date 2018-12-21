@@ -25,9 +25,11 @@ namespace Aut1
         {
             pagina = new PageObject.PageObject3();
             Actions action = new Actions(driver);
-            action.Click(driver.FindElement(pagina.radiovolta)).Perform();
-            System.Threading.Thread.Sleep(2000);
+
+
             action.Click(driver.FindElement(pagina.radioida)).Perform();
+            System.Threading.Thread.Sleep(2000);
+            action.Click(driver.FindElement(pagina.radiovolta)).Perform();
             System.Threading.Thread.Sleep(2000);
             action.Click(driver.FindElement(pagina.checkbox)).Perform();
             System.Threading.Thread.Sleep(2000);
@@ -35,20 +37,10 @@ namespace Aut1
             System.Threading.Thread.Sleep(2000);
             action.Click(driver.FindElement(pagina.textbox11)).SendKeys("Marilia").Perform();
             System.Threading.Thread.Sleep(2000);
-            action.Click(driver.FindElement(pagina.textbox11)).SendKeys(Keys.Tab).Perform();
-            System.Threading.Thread.Sleep(2000);
             //action.Click(driver.FindElement(pagina.textbox12)).SendKeys("Marilia").Perform();
             //System.Threading.Thread.Sleep(2000);
             action.Click(driver.FindElement(pagina.textbox2)).SendKeys("Barueri").Perform();
             System.Threading.Thread.Sleep(2000);
-
-            //action.Click(driver.FindElement(pagina.dropDownListBox)).Perform();
-            
-            // passo final após completar todos os campos 
-            action.Click(driver.FindElement(pagina.submitbtn)).Perform();
-
-
-
 
         }
         [TestCleanup]
