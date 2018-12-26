@@ -24,29 +24,34 @@ namespace Aut1
         [TestMethod]
         public void TestMethod4()
         {
-            pagina = new PageObject.PageObject4();
+            // Definindo o tempo do TimeSpan
+            TimeSpan time = new TimeSpan(00, 00, 05);
+
+            // Instanciando a classe WebDriverWait
+            WebDriverWait wait = new WebDriverWait(driver, time);
+
+            // Instanciando a classe Actions para interagir com os elementos da tela
             Actions action = new Actions(driver);
-            //action.Click(driver.FindElement(pagina.signbtn)).Perform();
-            //System.Threading.Thread.Sleep(2000);
-            //IJavaScriptExecutor js = driver as IJavaScriptExecutor;
-            //js.ExecuteScript("window.scrollBy(0,200);");
-            //action.Click(driver.FindElement(pagina.tboxemail)).Perform();
-            //action.Click(driver.FindElement(pagina.tboxemail)).SendKeys("12345@hotmail.com").Perform();
-            //pagina.tboxemail.Click();
-            //pagina.tboxemail.SendKeys("12345@hotmail.com");
+
+            // Instanciando a PageObject referente ao teste
+            pagina = new PageObject.PageObject4();
+
             action.Click(driver.FindElement(pagina.womenbtn)).Perform();
-            System.Threading.Thread.Sleep(2000);
-            action.Click(driver.FindElement(pagina.topbtn)).Perform();
-            //pagina.topbtn.Click();
-            System.Threading.Thread.Sleep(2000);
-
-
-
-
+            IWebElement element = wait.Until(ExpectedConditions.ElementToBeClickable(pagina.validarWomen));
+            IJavaScriptExecutor js = driver as IJavaScriptExecutor;
+            js.ExecuteScript("window.scrollBy(0,1000);");
+            action.Click(driver.FindElement(pagina.LogoPrincipal)).Perform();
 
 
 
         }
 
+        [TestCleanup]
+        public void finalizar()
+        {
+            driver.Quit();
+            driver = null;
+        }
     }
 }
+

@@ -46,47 +46,53 @@ namespace Aut1
             screenshot.SaveAsFile(fp, OpenQA.Selenium.ScreenshotImageFormat.Png);
             System.Threading.Thread.Sleep(2000);
 
+            driver.Navigate().GoToUrl("http://www.espn.com.br/");
+            //IWebElement elementfutebol = wait.Until(ExpectedConditions.ElementToBeClickable(pagina.futbtn));
 
-            // Noticias da gambazada
+            
+
+
+            // Noticias do Corinthians
             action.MoveToElement(driver.FindElement(pagina.futbtn)).Perform();
+            System.Threading.Thread.Sleep(2000);
             wait.Until(ExpectedConditions.ElementToBeClickable(pagina.corinthians));
-            action.MoveToElement(driver.FindElement(pagina.corinthians)).Perform();
+            action.MoveToElement(driver.FindElement(pagina.corinthians)).Build().Perform();
             System.Threading.Thread.Sleep(2000);
             action.Click(driver.FindElement(pagina.corinthians)).Perform();
 
-            wait.Until(ExpectedConditions.ElementIsVisible(pagina1.validar));
+            //wait.Until(ExpectedConditions.ElementIsVisible(pagina1.validar));
 
-            screenshot.SaveAsFile(fp, OpenQA.Selenium.ScreenshotImageFormat.Png);
-            System.Threading.Thread.Sleep(2000);
-
-
-
-            // Noticias da bixarada
-            action.MoveToElement(driver.FindElement(pagina.futbtn)).Perform();
-            wait.Until(ExpectedConditions.ElementToBeClickable(pagina.spfc));
-            action.MoveToElement(driver.FindElement(pagina.spfc)).Perform();
-            System.Threading.Thread.Sleep(2000);
-            action.Click(driver.FindElement(pagina.spfc)).Perform();
-
-            wait.Until(ExpectedConditions.ElementIsVisible(pagina1.validar));
+            //screenshot.SaveAsFile(fp, OpenQA.Selenium.ScreenshotImageFormat.Png);
+            //System.Threading.Thread.Sleep(2000);
 
 
-            screenshot.SaveAsFile(fp, OpenQA.Selenium.ScreenshotImageFormat.Png);
-            System.Threading.Thread.Sleep(2000);
+
+            //     Noticias da bixarada
+            //    action.MoveToElement(driver.FindElement(pagina.futbtn)).Perform();
+            //    wait.Until(ExpectedConditions.ElementToBeClickable(pagina.spfc));
+            //    action.MoveToElement(driver.FindElement(pagina.spfc)).Perform();
+            //    System.Threading.Thread.Sleep(2000);
+            //    action.Click(driver.FindElement(pagina.spfc)).Perform();
+
+            //    wait.Until(ExpectedConditions.ElementIsVisible(pagina1.validar));
 
 
-            // Noticias das sardinhas
-            action.MoveToElement(driver.FindElement(pagina.futbtn)).Perform();
-            wait.Until(ExpectedConditions.ElementToBeClickable(pagina.santos));
-            action.MoveToElement(driver.FindElement(pagina.santos)).Perform();
-            System.Threading.Thread.Sleep(2000);
-            action.Click(driver.FindElement(pagina.santos)).Perform();
-
-            wait.Until(ExpectedConditions.ElementIsVisible(pagina1.validar));
+            //    screenshot.SaveAsFile(fp, OpenQA.Selenium.ScreenshotImageFormat.Png);
+            //    System.Threading.Thread.Sleep(2000);
 
 
-            screenshot.SaveAsFile(fp, OpenQA.Selenium.ScreenshotImageFormat.Png);
-            System.Threading.Thread.Sleep(2000);
+            //     Noticias das sardinhas
+            //    action.MoveToElement(driver.FindElement(pagina.futbtn)).Perform();
+            //    wait.Until(ExpectedConditions.ElementToBeClickable(pagina.santos));
+            //    action.MoveToElement(driver.FindElement(pagina.santos)).Perform();
+            //    System.Threading.Thread.Sleep(2000);
+            //    action.Click(driver.FindElement(pagina.santos)).Perform();
+
+            //    wait.Until(ExpectedConditions.ElementIsVisible(pagina1.validar));
+
+
+            //    screenshot.SaveAsFile(fp, OpenQA.Selenium.ScreenshotImageFormat.Png);
+            //    System.Threading.Thread.Sleep(2000);
 
         }
         [TestCleanup]
