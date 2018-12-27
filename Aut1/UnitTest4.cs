@@ -24,6 +24,8 @@ namespace Aut1
         [TestMethod]
         public void TestMethod4()
         {
+
+
             // Definindo o tempo do TimeSpan
             TimeSpan time = new TimeSpan(00, 00, 05);
 
@@ -36,11 +38,43 @@ namespace Aut1
             // Instanciando a PageObject referente ao teste
             pagina = new PageObject.PageObject4();
 
-            action.Click(driver.FindElement(pagina.womenbtn)).Perform();
+            action.Click(driver.FindElement(pagina.womenBtn)).Perform();
             IWebElement element = wait.Until(ExpectedConditions.ElementToBeClickable(pagina.validarWomen));
+
+            // Estanciando classe IJavaScriptExecutor para usar scroll up e scroll down na pagina
             IJavaScriptExecutor js = driver as IJavaScriptExecutor;
             js.ExecuteScript("window.scrollBy(0,1000);");
-            action.Click(driver.FindElement(pagina.LogoPrincipal)).Perform();
+            System.Threading.Thread.Sleep(1000);
+            js.ExecuteScript("window.scrollBy(0,-1000);");
+
+            wait.Until(ExpectedConditions.ElementExists(pagina.textBox1));
+
+            driver.FindElement(pagina.textBox1).SendKeys("dresses");
+            driver.FindElement(pagina.textBox1).Submit();
+            System.Threading.Thread.Sleep(1000);
+
+            var selectTest = new SelectElement(driver.FindElement(pagina.comboSortBy));
+            selectTest.SelectByText("Price: Lowest first");
+            System.Threading.Thread.Sleep(1000);
+
+            driver.FindElement(pagina.listItens).Click();
+            driver.FindElement(pagina.gridItens).Click();
+            js.ExecuteScript("window.scrollBy(0,1500);");
+            driver.FindElement(pagina.caixaVestido).Click();
+
+
+            action.Click(driver.FindElement(pagina.maisBtn)).Perform();
+
+            //driver.FindElement(pagina.caixona2).Click();
+            //driver.FindElement(pagina.caixona2.FindElement(pagina.maisBtn)).Click();
+            //driver.FindElement(pagina.maisBtn).Click();
+
+            var selectSize = new SelectElement(driver.FindElement(pagina.sizeCbox));
+            selectTest.SelectByText("L");
+            System.Threading.Thread.Sleep(1000);
+
+
+
 
 
 
