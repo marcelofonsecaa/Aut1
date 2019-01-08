@@ -62,8 +62,11 @@ namespace Aut1
             js.ExecuteScript("window.scrollBy(0,1500);");
             driver.FindElement(pagina.caixaVestido).Click();
 
+            driver.SwitchTo().ActiveElement();
+            driver.FindElement(pagina.modalTextbox).Clear();
+            driver.FindElement(pagina.modalTextbox).SendKeys("2");
 
-            action.Click(driver.FindElement(pagina.maisBtn)).Perform();
+            //action.Click(driver.FindElement(pagina.maisBtn)).Perform();
 
             //driver.FindElement(pagina.caixona2).Click();
             //driver.FindElement(pagina.caixona2.FindElement(pagina.maisBtn)).Click();

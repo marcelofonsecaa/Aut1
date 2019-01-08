@@ -22,8 +22,10 @@ namespace Aut1.PageObject
         public By listItens { get { return By.Id("list"); } }
         public By gridItens { get { return By.Id("grid"); } }
         public By caixaVestido { get { return By.XPath("//*[@id='center_column']/ul/li[7]/div/div[1]/div/a[1]/img"); } }
-        public By maisBtn { get { return By.ClassName("icon-plus"); } }
+        public By maisBtn { get { return By.ClassName("btn.btn-default.button-plus.product_quantity_up"); } }
         public By sizeCbox { get { return By.Id("uniform-group_1"); } }
         public By caixona2 { get { return By.ClassName("product.product-4.product-printed-dress.category-10.category-evening-dresses.hide-left-column.hide-right-column.content_only.lang_en"); } }
+        public By modalTextbox { get { return By.Id("quantity_wanted"); } }
+
     }
 }
